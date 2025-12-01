@@ -14906,16 +14906,12 @@ export type MigrateConnectorToManagedInput = {
   connectorId: Scalars['ID']['input'];
   contractSlug: Scalars['String']['input'];
   convertUserToServiceAccount?: InputMaybe<Scalars['Boolean']['input']>;
-  preserveState?: InputMaybe<Scalars['Boolean']['input']>;
+  resetConnectorState?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type MigrateConnectorToManagedResult = {
   __typename?: 'MigrateConnectorToManagedResult';
   connector: Connector;
-  dryRun: Scalars['Boolean']['output'];
-  skipped?: Maybe<Scalars['Boolean']['output']>;
-  state_preserved: Scalars['Boolean']['output'];
-  warnings: Array<MigrationWarning>;
 };
 
 export type MigrationAssessment = {
@@ -14923,7 +14919,6 @@ export type MigrationAssessment = {
   connector_id: Scalars['ID']['output'];
   connector_name: Scalars['String']['output'];
   contract_slug: Scalars['String']['output'];
-  contract_title: Scalars['String']['output'];
   ignored: Array<IgnoredConfigKey>;
   mapped: Array<MappedConfigKey>;
   missing: Array<MissingConfigKey>;
@@ -14938,12 +14933,6 @@ export type MigrationAssessmentSummary = {
   mapped_keys: Scalars['Int']['output'];
   missing_mandatory_keys: Scalars['Int']['output'];
   total_source_keys: Scalars['Int']['output'];
-};
-
-export type MigrationWarning = {
-  __typename?: 'MigrationWarning';
-  field?: Maybe<Scalars['String']['output']>;
-  message: Scalars['String']['output'];
 };
 
 export type MissingConfigKey = {
@@ -36399,7 +36388,6 @@ export type ResolversTypes = ResolversObject<{
   MigrateConnectorToManagedResult: ResolverTypeWrapper<Omit<MigrateConnectorToManagedResult, 'connector'> & { connector: ResolversTypes['Connector'] }>;
   MigrationAssessment: ResolverTypeWrapper<MigrationAssessment>;
   MigrationAssessmentSummary: ResolverTypeWrapper<MigrationAssessmentSummary>;
-  MigrationWarning: ResolverTypeWrapper<MigrationWarning>;
   MissingConfigKey: ResolverTypeWrapper<MissingConfigKey>;
   Module: ResolverTypeWrapper<Module>;
   MultiDistribution: ResolverTypeWrapper<Omit<MultiDistribution, 'data'> & { data?: Maybe<Array<Maybe<ResolversTypes['Distribution']>>> }>;
@@ -37357,7 +37345,6 @@ export type ResolversParentTypes = ResolversObject<{
   MigrateConnectorToManagedResult: Omit<MigrateConnectorToManagedResult, 'connector'> & { connector: ResolversParentTypes['Connector'] };
   MigrationAssessment: MigrationAssessment;
   MigrationAssessmentSummary: MigrationAssessmentSummary;
-  MigrationWarning: MigrationWarning;
   MissingConfigKey: MissingConfigKey;
   Module: Module;
   MultiDistribution: Omit<MultiDistribution, 'data'> & { data?: Maybe<Array<Maybe<ResolversParentTypes['Distribution']>>> };
@@ -41253,7 +41240,6 @@ export type IgnoredConfigKeyResolvers<ContextType = any, ParentType extends Reso
   key?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   reason?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type IncidentResolvers<ContextType = any, ParentType extends ResolversParentTypes['Incident'] = ResolversParentTypes['Incident']> = ResolversObject<{
@@ -42606,7 +42592,6 @@ export type MappedConfigKeyResolvers<ContextType = any, ParentType extends Resol
   sourceKey?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type MappedEntityResolvers<ContextType = any, ParentType extends ResolversParentTypes['MappedEntity'] = ResolversParentTypes['MappedEntity']> = ResolversObject<{
@@ -42861,23 +42846,16 @@ export type MetricsByMimeTypeResolvers<ContextType = any, ParentType extends Res
 
 export type MigrateConnectorToManagedResultResolvers<ContextType = any, ParentType extends ResolversParentTypes['MigrateConnectorToManagedResult'] = ResolversParentTypes['MigrateConnectorToManagedResult']> = ResolversObject<{
   connector?: Resolver<ResolversTypes['Connector'], ParentType, ContextType>;
-  dryRun?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  skipped?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  state_preserved?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  warnings?: Resolver<Array<ResolversTypes['MigrationWarning']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type MigrationAssessmentResolvers<ContextType = any, ParentType extends ResolversParentTypes['MigrationAssessment'] = ResolversParentTypes['MigrationAssessment']> = ResolversObject<{
   connector_id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   connector_name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   contract_slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  contract_title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   ignored?: Resolver<Array<ResolversTypes['IgnoredConfigKey']>, ParentType, ContextType>;
   mapped?: Resolver<Array<ResolversTypes['MappedConfigKey']>, ParentType, ContextType>;
   missing?: Resolver<Array<ResolversTypes['MissingConfigKey']>, ParentType, ContextType>;
   summary?: Resolver<ResolversTypes['MigrationAssessmentSummary'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type MigrationAssessmentSummaryResolvers<ContextType = any, ParentType extends ResolversParentTypes['MigrationAssessmentSummary'] = ResolversParentTypes['MigrationAssessmentSummary']> = ResolversObject<{
@@ -42887,13 +42865,6 @@ export type MigrationAssessmentSummaryResolvers<ContextType = any, ParentType ex
   mapped_keys?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   missing_mandatory_keys?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   total_source_keys?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-
-export type MigrationWarningResolvers<ContextType = any, ParentType extends ResolversParentTypes['MigrationWarning'] = ResolversParentTypes['MigrationWarning']> = ResolversObject<{
-  field?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type MissingConfigKeyResolvers<ContextType = any, ParentType extends ResolversParentTypes['MissingConfigKey'] = ResolversParentTypes['MissingConfigKey']> = ResolversObject<{
@@ -42903,7 +42874,6 @@ export type MissingConfigKeyResolvers<ContextType = any, ParentType extends Reso
   format?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   key?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type ModuleResolvers<ContextType = any, ParentType extends ResolversParentTypes['Module'] = ResolversParentTypes['Module']> = ResolversObject<{
@@ -48625,7 +48595,6 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   MigrateConnectorToManagedResult?: MigrateConnectorToManagedResultResolvers<ContextType>;
   MigrationAssessment?: MigrationAssessmentResolvers<ContextType>;
   MigrationAssessmentSummary?: MigrationAssessmentSummaryResolvers<ContextType>;
-  MigrationWarning?: MigrationWarningResolvers<ContextType>;
   MissingConfigKey?: MissingConfigKeyResolvers<ContextType>;
   Module?: ModuleResolvers<ContextType>;
   MultiDistribution?: MultiDistributionResolvers<ContextType>;
