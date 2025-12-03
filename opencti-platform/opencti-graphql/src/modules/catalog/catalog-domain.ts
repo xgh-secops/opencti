@@ -10,7 +10,6 @@ import { idGenFromData } from '../../schema/identifier';
 import filigranCatalog from '../../__generated__/opencti-manifest.json';
 import conf, { logApp } from '../../config/conf';
 import type { ConnectorContractConfiguration, ContractConfigInput } from '../../generated/graphql';
-import { parse } from 'node:path';
 
 const CUSTOM_CATALOGS: string[] = conf.get('app:custom_catalogs') ?? [];
 const ajv = new Ajv({ coerceTypes: true });
@@ -518,9 +517,5 @@ export const findContractBySlug = (context: AuthContext, user: AuthUser, contrac
 };
 
 export const findContractByContainerImage = (context: AuthContext, user: AuthUser, containerImage: string) => {
-  return findContract(context, user, (contract) => {
-            const { container_image } = contract;
-        console.log('---  container_image',  container_image);
-    return contract.container_image === containerImage;
-});
+  return findContract(context, user, (contract) => contract.container_image === containerImage);
 };
