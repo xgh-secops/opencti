@@ -163,11 +163,11 @@ const ThreatActorIndividualDetails: FunctionComponent<
             relType="impersonates"
           />
           <ThreatActorIndividualLocation threatActorIndividual={data} />
-          <CardTitle style={{ marginTop: 20 }}>
+          <CardTitle sx={{ marginTop: '20px' }}>
             {t_i18n('First seen')}
           </CardTitle>
           {fldt(data.first_seen)}
-          <CardTitle style={{ marginTop: 20 }}>
+          <CardTitle sx={{ marginTop: '20px' }}>
             {t_i18n('Last seen')}
           </CardTitle>
           {fldt(data.last_seen)}
@@ -223,7 +223,7 @@ const ThreatActorIndividualDetails: FunctionComponent<
           </FieldOrEmpty>
         </Grid>
         <Grid item xs={4}>
-          <CardTitle style={{ marginTop: 20 }}>
+          <CardTitle sx={{ marginTop: '20px' }}>
             {t_i18n('Roles')}
           </CardTitle>
           <FieldOrEmpty source={data.roles}>
@@ -250,7 +250,7 @@ const ThreatActorIndividualDetails: FunctionComponent<
           </FieldOrEmpty>
         </Grid>
         <Grid item xs={4}>
-          <CardTitle style={{ marginTop: 20 }}>
+          <CardTitle sx={{ marginTop: '20px' }}>
             {t_i18n('Goals')}
           </CardTitle>
           <FieldOrEmpty source={data.goals}>
@@ -271,7 +271,7 @@ const ThreatActorIndividualDetails: FunctionComponent<
           </FieldOrEmpty>
         </Grid>
         <Grid item xs={4}>
-          <CardTitle style={{ marginTop: 20 }}>
+          <CardTitle sx={{ marginTop: '20px' }}>
             {t_i18n('Secondary motivations')}
           </CardTitle>
           <FieldOrEmpty source={data.secondary_motivations}>
@@ -302,7 +302,7 @@ const ThreatActorIndividualDetails: FunctionComponent<
           </FieldOrEmpty>
         </Grid>
         <Grid item xs={4}>
-          <CardTitle style={{ marginTop: 20 }}>
+          <CardTitle sx={{ marginTop: '20px' }}>
             {t_i18n('Personal motivations')}
           </CardTitle>
           <FieldOrEmpty source={data.personal_motivations}>

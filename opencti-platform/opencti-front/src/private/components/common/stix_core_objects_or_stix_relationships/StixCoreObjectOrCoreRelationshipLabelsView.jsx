@@ -161,7 +161,7 @@ const StixCoreObjectOrCoreRelationshipLabelsView = (props) => {
   return (
     <>
       <CardTitle
-        style={{ marginTop: 20 }}
+        sx={{ marginTop: '20px' }}
         action={(
           <Security needs={[KNOWLEDGE_KNUPDATE]}>
             <IconButton

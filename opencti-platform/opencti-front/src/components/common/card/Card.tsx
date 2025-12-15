@@ -9,6 +9,7 @@ interface CardProps extends PropsWithChildren {
   action?: ReactNode;
   noPadding?: boolean;
   sx?: SxProps;
+  titleSx?: SxProps;
   fullHeight?: boolean;
   onClick?: () => void;
 }
@@ -19,6 +20,7 @@ const Card = ({
   action,
   noPadding = false,
   sx = {},
+  titleSx,
   fullHeight = true,
   onClick,
 }: CardProps) => {
@@ -36,7 +38,7 @@ const Card = ({
   return (
     <Stack sx={{ height: '100%' }}>
       {title && (
-        <CardTitle action={action}>
+        <CardTitle action={action} sx={titleSx}>
           {title}
         </CardTitle>
       )}
