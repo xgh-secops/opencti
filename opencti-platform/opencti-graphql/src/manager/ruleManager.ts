@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import * as R from 'ramda';
 import type { Operation } from 'fast-json-patch';
 import * as jsonpatch from 'fast-json-patch';
@@ -78,7 +77,7 @@ const isAttributesImpactDependencies = (rule: RuleDefinition, operations: Operat
     .map((a) => a.name);
   const operationAttributes = R.uniq(operations.map((o) => {
     const parts = o.path.substring(1).split('/');
-    // eslint-disable-next-line no-restricted-globals
+
     return parts.filter((p) => isNaN(Number(p))).join('.');
   }));
   return operationAttributes.filter((f) => rulesAttributes.includes(f)).length > 0;
@@ -151,7 +150,6 @@ const applyCleanupOnDependencyIds = async (deletionIds: Array<string>, rules: Ar
     filterGroups: [],
   };
   const callback = async (elements: Array<BasicStoreCommon>) => {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     await rulesCleanHandler(context, RULE_MANAGER_USER, elements, rules, deletionIds);
     return true;
   };
@@ -165,7 +163,7 @@ export const rulesApplyHandler = async (
   events: Array<DataEvent>,
   forRules: Array<RuleRuntime> = [],
   createInferredEntityCallback: CreateInferredEntityCallbackFunction = createInferredEntity,
-  createInferredRelationCallback: CreateInferredRelationCallbackFunction = createInferredRelation
+  createInferredRelationCallback: CreateInferredRelationCallbackFunction = createInferredRelation,
 ) => {
   if (isEmptyField(events) || events.length === 0) {
     return;
@@ -180,7 +178,7 @@ export const rulesApplyHandler = async (
       if (type === EVENT_TYPE_MERGE) {
         const mergeEvent = event as MergeEvent;
         const mergeEvents = await ruleMergeHandler(mergeEvent);
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+
         await rulesApplyHandler(context, user, mergeEvents, forRules, createInferredEntityCallback, createInferredRelationCallback);
       }
       // In case of deletion, call clean on every impacted elements
@@ -354,7 +352,7 @@ export const executeRuleApply = async (
   rule: RuleRuntime,
   id: string,
   createInferredEntityCallback: CreateInferredEntityCallbackFunction,
-  createInferredRelationCallback: CreateInferredRelationCallbackFunction
+  createInferredRelationCallback: CreateInferredRelationCallbackFunction,
 ) => {
   // Execute rules over one element, act as element creation
   const instance = await storeLoadByIdWithRefs(context, user, id);
