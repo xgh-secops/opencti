@@ -3456,6 +3456,7 @@ input NoteAddInput {
   clientMutationId: String
   update: Boolean
   file: Upload
+  upsertOperations: [EditInput!]
 }
 
 input NoteUserAddInput {
@@ -10520,6 +10521,7 @@ input GroupingAddInput {
   update: Boolean
   file: Upload
   authorized_members: [MemberAccessInput!]
+  upsertOperations: [EditInput!]
 }
 
 type Narrative implements BasicObject & StixCoreObject & StixDomainObject & StixObject {
@@ -12357,6 +12359,7 @@ input MalwareAnalysisAddInput {
   x_opencti_modified_at: DateTime
   update: Boolean
   file: Upload
+  upsertOperations: [EditInput!]
 }
 
 type ManagerConfiguration implements InternalObject & BasicObject {

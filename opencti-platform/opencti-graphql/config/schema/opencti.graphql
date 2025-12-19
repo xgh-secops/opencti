@@ -3867,6 +3867,7 @@ input NoteAddInput {
   clientMutationId: String
   update: Boolean
   file: Upload
+  upsertOperations: [EditInput!]
 }
 input NoteUserAddInput {
   stix_id: String
