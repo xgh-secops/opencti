@@ -2081,7 +2081,7 @@ const buildAttribute = async (context, user, entityType, key, array) => {
     }
     if (attribute.type === 'string' && attribute.format === 'id') {
       // Specific case for x_opencti_workflow_id
-      // It cant be a simple resolution, because the name is located on the template
+      // It can't be a simple resolution, because the name is located on the template
       if (key === X_WORKFLOW_ID) {
         const platformStatuses = await getEntitiesListFromCache(context, user, ENTITY_TYPE_STATUS);
         const status = platformStatuses.find((p) => p.id === item);
