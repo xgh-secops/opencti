@@ -507,6 +507,7 @@ class Location:
                         "opencti_upsert_operations", stix_object
                     )
             )
+
             return self.create(
                 type=type,
                 stix_id=stix_object["id"],
