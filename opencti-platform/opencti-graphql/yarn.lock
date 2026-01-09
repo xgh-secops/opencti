@@ -7878,15 +7878,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:21.2.0":
-  version: 21.2.0
-  resolution: "file-type@npm:21.2.0"
+"file-type@npm:21.3.0":
+  version: 21.3.0
+  resolution: "file-type@npm:21.3.0"
   dependencies:
     "@tokenizer/inflate": "npm:^0.4.1"
     strtok3: "npm:^10.3.4"
     token-types: "npm:^6.1.1"
     uint8array-extras: "npm:^1.4.0"
-  checksum: 10c0/af72f992fb8a6d9ff3a43dfe9293cab4f6b4faec7dc7f950e10c30fda9d5e5799e5fc45ad749fe5b2c1076699716f47ebcf0d573a6ad8640da82e35f36a481cf
+  checksum: 10c0/1b1fa909e6063044a6da1d2ea348ee4d747ed9286382d3f0d4d6532c11fb2ea9f2e7e67b2bc7d745d1bc937e05dee1aa8cb912c64250933bcb393a3744f4e284
   languageName: node
   linkType: hard
 
@@ -10689,7 +10689,7 @@ __metadata:
     express-rate-limit: "npm:8.2.1"
     express-session: "npm:1.18.2"
     fast-json-patch: "npm:3.1.1"
-    file-type: "npm:21.2.0"
+    file-type: "npm:21.3.0"
     github-api: "npm:3.4.0"
     globals: "npm:17.0.0"
     graphql: "npm:16.12.0"
@@ -10745,13 +10745,13 @@ __metadata:
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.51.0"
     unzipper: "npm:0.12.3"
-    uuid: "npm:11.1.0"
+    uuid: "npm:13.0.0"
     uuid-time: "npm:1.0.0"
     validator: "npm:13.15.26"
     vitest: "npm:3.2.4"
     winston: "npm:3.19.0"
     winston-daily-rotate-file: "npm:5.0.0"
-    ws: "npm:8.18.3"
+    ws: "npm:8.19.0"
     xml2js: "npm:0.6.2"
     zod: "npm:3.25.76"
   dependenciesMeta:
@@ -13218,12 +13218,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:11.1.0, uuid@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "uuid@npm:11.1.0"
+"uuid@npm:13.0.0":
+  version: 13.0.0
+  resolution: "uuid@npm:13.0.0"
   bin:
-    uuid: dist/esm/bin/uuid
-  checksum: 10c0/34aa51b9874ae398c2b799c88a127701408cd581ee89ec3baa53509dd8728cbb25826f2a038f9465f8b7be446f0fbf11558862965b18d21c993684297628d4d3
+    uuid: dist-node/bin/uuid
+  checksum: 10c0/950e4c18d57fef6c69675344f5700a08af21e26b9eff2bf2180427564297368c538ea11ac9fb2e6528b17fc3966a9fd2c5049361b0b63c7d654f3c550c9b3d67
   languageName: node
   linkType: hard
 
@@ -13233,6 +13233,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10c0/eab18c27fe4ab9fb9709a5d5f40119b45f2ec8314f8d4cf12ce27e4c6f4ffa4a6321dc7db6c515068fa373c075b49691ba969f0010bf37f44c37ca40cd6bf7fe
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "uuid@npm:11.1.0"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 10c0/34aa51b9874ae398c2b799c88a127701408cd581ee89ec3baa53509dd8728cbb25826f2a038f9465f8b7be446f0fbf11558862965b18d21c993684297628d4d3
   languageName: node
   linkType: hard
 
@@ -13659,7 +13668,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.18.3, ws@npm:^8.17.1, ws@npm:^8.18.3":
+"ws@npm:8.19.0":
+  version: 8.19.0
+  resolution: "ws@npm:8.19.0"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ">=5.0.2"
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 10c0/4741d9b9bc3f9c791880882414f96e36b8b254e34d4b503279d6400d9a4b87a033834856dbdd94ee4b637944df17ea8afc4bce0ff4a1560d2166be8855da5b04
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.17.1, ws@npm:^8.18.3":
   version: 8.18.3
   resolution: "ws@npm:8.18.3"
   peerDependencies:
