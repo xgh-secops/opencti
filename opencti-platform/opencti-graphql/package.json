@@ -1,6 +1,6 @@
 {
   "name": "opencti-graphql",
-  "version": "6.9.6",
+  "version": "6.9.7",
   "private": true,
   "scripts": {
     "check-ts": "tsc --noEmit",
@@ -51,15 +51,15 @@
   "dependencies": {
     "@apollo/server": "5.2.0",
     "@as-integrations/express5": "1.1.2",
-    "@aws-sdk/client-s3": "3.955.0",
-    "@aws-sdk/client-sts": "3.955.0",
-    "@aws-sdk/credential-provider-node": "3.955.0",
-    "@aws-sdk/lib-storage": "3.955.0",
+    "@aws-sdk/client-s3": "3.965.0",
+    "@aws-sdk/client-sts": "3.965.0",
+    "@aws-sdk/credential-provider-node": "3.965.0",
+    "@aws-sdk/lib-storage": "3.965.0",
     "@datadog/pprof": "5.13.1",
     "@elastic/elasticsearch": "8.19.1",
     "@escape.tech/graphql-armor": "3.2.0",
-    "@graphql-tools/merge": "9.1.6",
-    "@graphql-tools/schema": "10.0.30",
+    "@graphql-tools/merge": "9.1.7",
+    "@graphql-tools/schema": "10.0.31",
     "@graphql-tools/utils": "10.11.0",
     "@jorgeferrero/stream-to-buffer": "2.0.6",
     "@langchain/core": "0.3.59",
@@ -96,7 +96,7 @@
     "axios-cookiejar-support": "6.0.5",
     "bcryptjs": "3.0.3",
     "bluebird": "3.7.2",
-    "body-parser": "2.2.1",
+    "body-parser": "2.2.2",
     "canonicalize": "2.1.0",
     "compression": "1.8.1",
     "content-disposition": "1.0.1",
@@ -204,7 +204,7 @@
     "globals": "17.0.0",
     "graphql-tag": "2.12.6",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.51.0",
+    "typescript-eslint": "8.52.0",
     "vitest": "3.2.4"
   },
   "resolutions": {
